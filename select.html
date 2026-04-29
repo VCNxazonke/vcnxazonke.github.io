@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Value</title>
+</head>
+
+<body>
+
+    <form method="POST">
+        <select onchange="selectSubject()" name="gender" id="subject">
+            <option value=""></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+
+      </select>
+
+        <br><br>
+        <button onclick="selectSubject()">Click me</button>
+
+    </form>
+
+    <h3 id="selectionResult">
+    </h3>
+
+    <script>
+        function selectSubject() {
+            let subject = document.getElementById("subject").value;
+            let selectionResult = document.getElementById("selectionResult");
+            selectionResult.innerHTML = "Gender: " + subject;
+
+            // console.log(subject);
+        }
+    </script>
+</body>
+
+</html>
