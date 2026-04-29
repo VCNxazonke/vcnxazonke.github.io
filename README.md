@@ -1,2 +1,2 @@
 # vcnxazonke.github.io
-My own personal website, built by me for the world...🌍 "Howdy World!"
+My own personal website and portfolio, built by me for the world...🌍 "Howdy World!"
