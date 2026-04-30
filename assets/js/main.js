@@ -340,9 +340,9 @@
         document.documentElement.msRequestFullscreen().catch(() => {});
       }
     }
-    document.body.removeEventListener('click', requestFullScreen);
+    window.removeEventListener('scroll', requestFullScreen);
   };
-  document.body.addEventListener('click', requestFullScreen);
+  window.addEventListener('scroll', requestFullScreen, { once: true });
 
 })()
 

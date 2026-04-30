@@ -1,4 +1,4 @@
-const CACHE_NAME = 'iresume-vuyi-cache-v3';
+const CACHE_NAME = 'iresume-vuyi-cache-v4';
 
 // Core assets to cache for offline use
 const OFFLINE_ASSETS = [
