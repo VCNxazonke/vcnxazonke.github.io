@@ -1493,11 +1493,11 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
 @keyframes iconBreathe {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 0px rgba(20, 157, 221, 0));
+    filter: drop-shadow(0 0 0px rgba(20, 157, 221, 0)) hue-rotate(0deg);
   }
   50% {
     transform: scale(1.14);
-    filter: drop-shadow(0 0 7px rgba(20, 157, 221, 0.65));
+    filter: drop-shadow(0 0 7px rgba(20, 157, 221, 0.65)) hue-rotate(-20deg);
   }
 }
 
@@ -1505,11 +1505,11 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
 @keyframes iconFloat {
   0%, 100% {
     transform: translateY(0) scale(1);
-    filter: drop-shadow(0 0 0 rgba(20, 157, 221, 0));
+    filter: drop-shadow(0 0 0 rgba(20, 157, 221, 0)) hue-rotate(0deg);
   }
   50% {
     transform: translateY(-4px) scale(1.08);
-    filter: drop-shadow(0 0 9px rgba(55, 179, 237, 0.6));
+    filter: drop-shadow(0 0 9px rgba(55, 179, 237, 0.6)) hue-rotate(-20deg);
   }
 }
 

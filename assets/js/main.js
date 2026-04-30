@@ -327,6 +327,23 @@
     });
   }
 
+  /**
+   * Auto Fullscreen on first interaction
+   */
+  const requestFullScreen = () => {
+    if (!document.fullscreenElement) {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else if (document.documentElement.webkitRequestFullscreen) { /* Safari */
+        document.documentElement.webkitRequestFullscreen().catch(() => {});
+      } else if (document.documentElement.msRequestFullscreen) { /* IE11 */
+        document.documentElement.msRequestFullscreen().catch(() => {});
+      }
+    }
+    document.body.removeEventListener('click', requestFullScreen);
+  };
+  document.body.addEventListener('click', requestFullScreen);
+
 })()
 
 
