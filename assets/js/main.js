@@ -304,19 +304,18 @@
   /**
    * Service worker registration & basic notification setup (PWA)
    */
-  let deferredInstallPrompt;
+  let deferredInstallPrompt = null;
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker
         .register('sw.js')
         .then((registration) => {
-          // Request notification permission and show a welcome notification once
           if ('Notification' in window && Notification.permission === 'default') {
             Notification.requestPermission().then((permission) => {
               if (permission === 'granted') {
-                registration.showNotification('Vuyisile\'s iResume ready for offline use', {
-                  body: 'Thank you for allowing notifications. Please note that this CV can now be accessed even when you are offline🛜.',
+                registration.showNotification('iResume ready for offline use', {
+                  body: 'This CV can now be accessed even when you are offline 🛜.',
                   icon: 'assets/img/favicon.png',
                   badge: 'assets/img/favicon.png'
                 });
@@ -330,33 +329,76 @@
     });
   }
 
-  // Capture beforeinstallprompt so we can show our own Install button
+  /**
+   * PWA Install FAB — always visible after load.
+   * Shows native prompt when available; falls back to manual instructions.
+   */
+
+  // Capture the browser install prompt before it auto-fires
   window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
     deferredInstallPrompt = event;
-    const installButton = document.getElementById('pwa-install-button');
-    if (installButton) {
-      installButton.style.display = 'inline-flex';
+    // Switch FAB to "ready-to-install" state
+    const fab = document.getElementById('pwa-install-fab');
+    if (fab) {
+      fab.classList.add('pwa-fab--ready');
+      fab.setAttribute('title', 'Click to install this CV as an app');
     }
   });
 
-  // Wire up Install button click
-  window.addEventListener('load', () => {
-    const installButton = document.getElementById('pwa-install-button');
-    if (!installButton) return;
+  // Hide FAB once successfully installed
+  window.addEventListener('appinstalled', () => {
+    deferredInstallPrompt = null;
+    const fab = document.getElementById('pwa-install-fab');
+    const footerBtn = document.getElementById('pwa-install-button');
+    if (fab) fab.style.display = 'none';
+    if (footerBtn) footerBtn.style.display = 'none';
+  });
 
-    installButton.addEventListener('click', async () => {
-      if (!deferredInstallPrompt) {
-        alert('Install is not available in this browser or context yet.');
-        return;
+  // Wire up install buttons on load
+  window.addEventListener('load', () => {
+    const fab = document.getElementById('pwa-install-fab');
+    const footerBtn = document.getElementById('pwa-install-button');
+
+    // Always show the FAB — let users know the option exists
+    if (fab) {
+      fab.style.display = 'inline-flex';
+      // Check if already running as installed PWA
+      const isInstalled =
+        window.matchMedia('(display-mode: standalone)').matches ||
+        window.navigator.standalone === true;
+      if (isInstalled) {
+        fab.style.display = 'none';
       }
-      deferredInstallPrompt.prompt();
-      const { outcome } = await deferredInstallPrompt.userChoice;
-      if (outcome === 'accepted') {
-        installButton.style.display = 'none';
+    }
+
+    const handleInstallClick = async () => {
+      if (deferredInstallPrompt) {
+        // Native browser install prompt available
+        deferredInstallPrompt.prompt();
+        const { outcome } = await deferredInstallPrompt.userChoice;
+        deferredInstallPrompt = null;
+        if (outcome === 'accepted') {
+          if (fab) fab.style.display = 'none';
+          if (footerBtn) footerBtn.style.display = 'none';
+        }
+      } else {
+        // Fallback: show manual install instructions
+        const msg =
+          'To install this CV as an app:\n\n' +
+          '• Chrome / Edge (desktop): Click the ⊕ icon in the address bar.\n' +
+          '• Chrome (Android): tap the 3-dot menu → "Add to Home screen".\n' +
+          '• Safari (iPhone/iPad): tap Share → "Add to Home Screen".\n\n' +
+          'Note: The site must be opened over HTTPS (vcnxazonke.github.io).';
+        alert(msg);
       }
-      deferredInstallPrompt = null;
-    });
+    };
+
+    if (fab) fab.addEventListener('click', handleInstallClick);
+    if (footerBtn) {
+      footerBtn.style.display = 'inline-flex';
+      footerBtn.addEventListener('click', handleInstallClick);
+    }
   });
 
 })()

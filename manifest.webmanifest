@@ -1,22 +1,35 @@
 {
   "name": "iResume ka Vuyisile Collin Nxazonke",
   "short_name": "iResume Vuyi",
+  "description": "Portfolio & CV of Vuyisile Collin Nxazonke – Procurement & Contract Management Specialist",
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#040b14",
-  "theme_color": "#040b14",
+  "theme_color": "#149ddd",
+  "categories": ["business", "productivity"],
   "icons": [
     {
       "src": "assets/img/favicon.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "assets/img/apple-touch-icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/img/hero-bg.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Hero section of Vuyisile Nxazonke portfolio"
     }
   ]
 }
-
