@@ -306,7 +306,7 @@ section {
 }
 
 .section-bg {
-  background: #f5f8fd;
+  background: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 40%, #e4f0fc 100%);
 }
 
 .section-title {
@@ -378,6 +378,7 @@ section {
 --------------------------------------------------------------*/
 .facts {
   padding-bottom: 30px;
+  background: linear-gradient(160deg, #dbeef9 0%, #eaf4fc 50%, #d6eaf7 100%);
 }
 
 .facts .count-box {
@@ -1244,13 +1245,13 @@ section.section-zoom-in {
 
 /* -- Keyframes --------------------------------------------- */
 @keyframes breathe {
-  0%, 100% { transform: scale(1);      box-shadow: 0 4px 15px rgba(20,157,221,0.35); }
-  50%       { transform: scale(1.028); box-shadow: 0 6px 28px rgba(20,157,221,0.55); }
+  0%, 100% { box-shadow: 0 4px 15px rgba(20,157,221,0.28); }
+  50%       { box-shadow: 0 7px 28px rgba(20,157,221,0.55); transform: translateY(-1px); }
 }
 
 @keyframes glimmer {
   0%   { border-color: rgba(20,157,221,0.25); box-shadow: 0 0 0   rgba(55,179,237,0); }
-  50%  { border-color: rgba(55,179,237,0.7);  box-shadow: 0 0 14px rgba(55,179,237,0.4); }
+  50%  { border-color: rgba(55,179,237,0.75); box-shadow: 0 0 14px rgba(55,179,237,0.45); }
   100% { border-color: rgba(20,157,221,0.25); box-shadow: 0 0 0   rgba(55,179,237,0); }
 }
 
@@ -1260,13 +1261,13 @@ section.section-zoom-in {
 }
 
 @keyframes profileRing {
-  0%, 100% { box-shadow: 0 0 0 4px rgba(20,157,221,0.3), 0 0 20px rgba(20,157,221,0.15); }
-  50%       { box-shadow: 0 0 0 7px rgba(55,179,237,0.5), 0 0 38px rgba(55,179,237,0.3); }
+  0%, 100% { box-shadow: 0 0 0 3px rgba(20,157,221,0.3),  0 0 18px rgba(20,157,221,0.15); }
+  50%       { box-shadow: 0 0 0 6px rgba(55,179,237,0.5),  0 0 32px rgba(55,179,237,0.3); }
 }
 
 @keyframes fabPulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(20,157,221,0.5), 0 0 0 0 rgba(20,157,221,0.35); }
-  50%       { box-shadow: 0 8px 30px rgba(20,157,221,0.7), 0 0 0 8px rgba(20,157,221,0); }
+  0%, 100% { box-shadow: 0 4px 18px rgba(20,157,221,0.45), 0 0 0 0   rgba(20,157,221,0.3); }
+  50%       { box-shadow: 0 7px 28px rgba(20,157,221,0.65), 0 0 0 7px rgba(20,157,221,0); }
 }
 
 /* -- Header: Frosted Glass Panel --------------------------- */
@@ -1301,22 +1302,22 @@ section.section-zoom-in {
   border-radius: 8px;
 }
 
-/* -- Social Icons: Glimmer shimmer ------------------------- */
-#header .profile .social-links a { animation: glimmer 4s ease-in-out infinite; }
+/* -- Social Icons: Glimmer shimmer (slower, gentler) ------- */
+#header .profile .social-links a { animation: glimmer 6s ease-in-out infinite; }
 #header .profile .social-links a:nth-child(1) { animation-delay: 0s; }
-#header .profile .social-links a:nth-child(2) { animation-delay: 0.6s; }
-#header .profile .social-links a:nth-child(3) { animation-delay: 1.2s; }
-#header .profile .social-links a:nth-child(4) { animation-delay: 1.8s; }
-#header .profile .social-links a:nth-child(5) { animation-delay: 2.4s; }
+#header .profile .social-links a:nth-child(2) { animation-delay: 0.8s; }
+#header .profile .social-links a:nth-child(3) { animation-delay: 1.6s; }
+#header .profile .social-links a:nth-child(4) { animation-delay: 2.4s; }
+#header .profile .social-links a:nth-child(5) { animation-delay: 3.2s; }
 #header .profile .social-links a:hover {
   animation-play-state: paused;
-  transform: translateY(-4px) scale(1.12);
-  box-shadow: 0 8px 25px rgba(20,157,221,0.65) !important;
+  transform: translateY(-4px) scale(1.15);
+  box-shadow: 0 8px 28px rgba(20,157,221,0.7) !important;
 }
 
-/* -- Buttons: Breathing + Jump on hover -------------------- */
+/* -- Buttons: Very gentle breathe + jump on hover ---------- */
 button:not(.pwa-install-fab):not(.login-option-btn) {
-  animation: breathe 3s ease-in-out infinite;
+  animation: breathe 7s ease-in-out infinite;
   border-radius: 50px !important;
   position: relative;
   overflow: hidden;
@@ -1353,18 +1354,19 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
   color: #1a4f80;
 }
 
-/* -- Count Boxes: Glass panels ----------------------------- */
+/* -- Count Boxes: True glass on gradient-blue background --- */
 .facts .count-box {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(20,157,221,0.15);
-  border-radius: 16px;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border: 1px solid rgba(255,255,255,0.65);
+  border-radius: 18px;
   transition: transform 0.35s, box-shadow 0.35s;
+  box-shadow: 0 8px 32px rgba(5,60,120,0.12), inset 0 1px 0 rgba(255,255,255,0.7);
 }
 .facts .count-box:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(20,157,221,0.2);
+  box-shadow: 0 14px 44px rgba(20,157,221,0.25), inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 /* -- Skill Progress Bars: Shimmer sweep -------------------- */
@@ -1393,31 +1395,37 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
   box-shadow: 0 16px 48px rgba(20,157,221,0.25);
 }
 
-/* -- Services Icon Boxes: Glass cards ---------------------- */
+/* -- Services Icon Boxes: True glass on gradient-blue bg --- */
 .services .icon-box {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(20,157,221,0.1);
-  border-radius: 16px;
+  background: rgba(255,255,255,0.38);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 18px;
   padding: 28px 22px;
   transition: transform 0.35s, box-shadow 0.35s, background 0.35s;
+  box-shadow: 0 8px 32px rgba(5,60,120,0.1), inset 0 1px 0 rgba(255,255,255,0.7);
 }
 .services .icon-box:hover {
   transform: translateY(-8px);
-  background: rgba(20,157,221,0.07);
-  box-shadow: 0 16px 48px rgba(20,157,221,0.2);
-  border-color: rgba(20,157,221,0.35);
+  background: rgba(255,255,255,0.55);
+  box-shadow: 0 18px 52px rgba(20,157,221,0.22), inset 0 1px 0 rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.85);
 }
 
-/* -- Testimonial cards: Glass ----------------------------- */
+/* Give services section its own gradient background for glass to work */
+.services {
+  background: linear-gradient(135deg, #d6eaf8 0%, #e8f5fd 40%, #cce5f5 100%);
+}
+
+/* -- Testimonial cards: Glass on gradient bg --------------- */
 .testimonials .testimonial-item p {
-  background: rgba(255,255,255,0.55) !important;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(20,157,221,0.15) !important;
+  background: rgba(255,255,255,0.45) !important;
+  backdrop-filter: blur(18px) saturate(1.6);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  border: 1px solid rgba(255,255,255,0.65) !important;
   border-radius: 14px !important;
-  box-shadow: 0 8px 32px rgba(5,13,24,0.08) !important;
+  box-shadow: 0 8px 32px rgba(5,60,120,0.1), inset 0 1px 0 rgba(255,255,255,0.7) !important;
 }
 
 /* -- Section title underline: shimmer ---------------------- */
@@ -1489,27 +1497,27 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
    ICON LIFE LAYER — breathing pulse at rest, burst on hover
    ============================================================ */
 
-/* Keyframe: very subtle breathing scale + soft glow */
+/* Keyframe: clearly visible breathing scale + real glow (slow + subtle) */
 @keyframes iconBreathe {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 0px rgba(20, 157, 221, 0)) hue-rotate(0deg);
+    filter: drop-shadow(0 0 0px rgba(20, 157, 221, 0));
   }
   50% {
-    transform: scale(1.35);
-    filter: drop-shadow(0 0 15px rgba(20, 157, 221, 0.8)) hue-rotate(-45deg);
+    transform: scale(1.09);
+    filter: drop-shadow(0 0 9px rgba(20, 157, 221, 0.65));
   }
 }
 
-/* Keyframe: floating bob for the large stat icons */
+/* Keyframe: visible floating bob for stat icons (slow + subtle) */
 @keyframes iconFloat {
   0%, 100% {
     transform: translateY(0) scale(1);
-    filter: drop-shadow(0 0 0 rgba(20, 157, 221, 0)) hue-rotate(0deg);
+    filter: drop-shadow(0 0 0px rgba(20, 157, 221, 0));
   }
   50% {
-    transform: translateY(-8px) scale(1.3);
-    filter: drop-shadow(0 0 18px rgba(55, 179, 237, 0.8)) hue-rotate(-45deg);
+    transform: translateY(-6px) scale(1.07);
+    filter: drop-shadow(0 0 11px rgba(55, 179, 237, 0.6));
   }
 }
 
@@ -1523,16 +1531,16 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
 
 /* ── 1. Sidebar nav icons ────────────────────────────────── */
 .nav-menu a i {
-  animation: iconBreathe 3.2s ease-in-out infinite;
+  animation: iconBreathe 7s ease-in-out infinite;
   transition: color 0.3s, transform 0.3s, filter 0.3s;
 }
 /* Stagger each nav item */
-.nav-menu li:nth-child(1) a i { animation-delay: 0s;    animation-duration: 3.0s; }
-.nav-menu li:nth-child(2) a i { animation-delay: 0.45s; animation-duration: 3.4s; }
-.nav-menu li:nth-child(3) a i { animation-delay: 0.9s;  animation-duration: 2.9s; }
-.nav-menu li:nth-child(4) a i { animation-delay: 1.35s; animation-duration: 3.6s; }
-.nav-menu li:nth-child(5) a i { animation-delay: 1.8s;  animation-duration: 3.1s; }
-.nav-menu li:nth-child(6) a i { animation-delay: 2.25s; animation-duration: 3.5s; }
+.nav-menu li:nth-child(1) a i { animation-delay: 0s;    animation-duration: 6.5s; }
+.nav-menu li:nth-child(2) a i { animation-delay: 0.8s;  animation-duration: 7.5s; }
+.nav-menu li:nth-child(3) a i { animation-delay: 1.6s;  animation-duration: 6.8s; }
+.nav-menu li:nth-child(4) a i { animation-delay: 2.4s;  animation-duration: 7.2s; }
+.nav-menu li:nth-child(5) a i { animation-delay: 3.2s;  animation-duration: 7.0s; }
+.nav-menu li:nth-child(6) a i { animation-delay: 4.0s;  animation-duration: 6.6s; }
 
 /* On hover / active — come alive */
 .nav-menu a:hover i,
@@ -1546,13 +1554,13 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
 
 /* ── 2. Facts / Snapshot stat icons ─────────────────────── */
 .facts .count-box i {
-  animation: iconFloat 2.8s ease-in-out infinite;
+  animation: iconFloat 7s ease-in-out infinite;
   transition: transform 0.3s, filter 0.3s, color 0.3s;
 }
 .facts .count-box:nth-child(1) i { animation-delay: 0s; }
-.facts .count-box:nth-child(2) i { animation-delay: 0.5s; }
-.facts .count-box:nth-child(3) i { animation-delay: 1.0s; }
-.facts .count-box:nth-child(4) i { animation-delay: 1.5s; }
+.facts .count-box:nth-child(2) i { animation-delay: 1.0s; }
+.facts .count-box:nth-child(3) i { animation-delay: 2.0s; }
+.facts .count-box:nth-child(4) i { animation-delay: 3.0s; }
 
 .facts .count-box:hover i {
   animation-play-state: paused !important;
@@ -1563,15 +1571,15 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
 
 /* ── 3. Key Strengths / Services icons ───────────────────── */
 .services .icon i {
-  animation: iconBreathe 3s ease-in-out infinite;
+  animation: iconBreathe 7s ease-in-out infinite;
   transition: transform 0.3s, filter 0.3s;
 }
 .services .icon-box:nth-child(1) .icon i { animation-delay: 0s; }
-.services .icon-box:nth-child(2) .icon i { animation-delay: 0.4s; }
-.services .icon-box:nth-child(3) .icon i { animation-delay: 0.8s; }
-.services .icon-box:nth-child(4) .icon i { animation-delay: 1.2s; }
-.services .icon-box:nth-child(5) .icon i { animation-delay: 1.6s; }
-.services .icon-box:nth-child(6) .icon i { animation-delay: 2.0s; }
+.services .icon-box:nth-child(2) .icon i { animation-delay: 0.8s; }
+.services .icon-box:nth-child(3) .icon i { animation-delay: 1.6s; }
+.services .icon-box:nth-child(4) .icon i { animation-delay: 2.4s; }
+.services .icon-box:nth-child(5) .icon i { animation-delay: 3.2s; }
+.services .icon-box:nth-child(6) .icon i { animation-delay: 4.0s; }
 
 .services .icon-box:hover .icon i {
   animation: iconPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -1579,17 +1587,17 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
   filter: drop-shadow(0 0 14px rgba(20, 157, 221, 0.9));
 }
 
-/* ── 4. Social link icons ────────────────────────────────── */
+/* ── 4. Social link icons (gentle, staggered) ────────────── */
 #header .profile .social-links a i {
-  animation: iconBreathe 3.8s ease-in-out infinite;
+  animation: iconBreathe 8s ease-in-out infinite;
   transition: transform 0.25s, filter 0.25s;
-  display: inline-block; /* needed for transform */
+  display: inline-block;
 }
 #header .profile .social-links a:nth-child(1) i { animation-delay: 0s; }
-#header .profile .social-links a:nth-child(2) i { animation-delay: 0.55s; }
-#header .profile .social-links a:nth-child(3) i { animation-delay: 1.1s; }
-#header .profile .social-links a:nth-child(4) i { animation-delay: 1.65s; }
-#header .profile .social-links a:nth-child(5) i { animation-delay: 2.2s; }
+#header .profile .social-links a:nth-child(2) i { animation-delay: 1.0s; }
+#header .profile .social-links a:nth-child(3) i { animation-delay: 2.0s; }
+#header .profile .social-links a:nth-child(4) i { animation-delay: 3.0s; }
+#header .profile .social-links a:nth-child(5) i { animation-delay: 4.0s; }
 
 #header .profile .social-links a:hover i {
   animation-play-state: paused !important;
