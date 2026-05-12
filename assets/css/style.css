@@ -301,7 +301,7 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 80px 0;
   overflow: hidden;
 }
 
@@ -310,7 +310,7 @@ section {
 }
 
 .section-title {
-  padding-bottom: 30px;
+  padding-bottom: 45px;
 }
 
 .section-title h2 {
@@ -377,12 +377,12 @@ section {
 # Facts
 --------------------------------------------------------------*/
 .facts {
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   background: linear-gradient(160deg, #dbeef9 0%, #eaf4fc 50%, #d6eaf7 100%);
 }
 
 .facts .count-box {
-  padding: 30px;
+  padding: 40px 36px;
   width: 100%;
 }
 
@@ -429,7 +429,7 @@ section {
 # Skills
 --------------------------------------------------------------*/
 .skills .progress {
-  height: 60px;
+  height: 72px;
   display: block;
   background: none;
   border-radius: 0;
@@ -469,14 +469,14 @@ section {
 .resume .resume-title {
   font-size: 26px;
   font-weight: 700;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 28px;
   color: #050d18;
 }
 
 .resume .resume-item {
-  padding: 0 0 20px 20px;
-  margin-top: -2px;
+  padding: 0 0 36px 24px;
+  margin-top: 0;
   border-left: 3px solid #149ddd;
   position: relative;
   transition: all 0.3s ease;
@@ -534,7 +534,7 @@ section {
 # Portfolio
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .portfolio #portfolio-flters {
@@ -1402,7 +1402,7 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
   -webkit-backdrop-filter: blur(20px) saturate(1.8);
   border: 1px solid rgba(255,255,255,0.6);
   border-radius: 18px;
-  padding: 28px 22px;
+  padding: 36px 28px;
   transition: transform 0.35s, box-shadow 0.35s, background 0.35s;
   box-shadow: 0 8px 32px rgba(5,60,120,0.1), inset 0 1px 0 rgba(255,255,255,0.7);
 }
@@ -1497,27 +1497,31 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
    ICON LIFE LAYER — breathing pulse at rest, burst on hover
    ============================================================ */
 
-/* Keyframe: clearly visible breathing scale + real glow (slow + subtle) */
+/* Keyframe: unmistakably alive — slow breathe with glow + colour shift */
 @keyframes iconBreathe {
   0%, 100% {
     transform: scale(1);
     filter: drop-shadow(0 0 0px rgba(20, 157, 221, 0));
+    color: #6f7180;
   }
   50% {
-    transform: scale(1.09);
-    filter: drop-shadow(0 0 9px rgba(20, 157, 221, 0.65));
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 12px rgba(20, 157, 221, 0.75));
+    color: #37b3ed;
   }
 }
 
-/* Keyframe: visible floating bob for stat icons (slow + subtle) */
+/* Keyframe: unmistakably floating — gentle bob with glow + colour shift */
 @keyframes iconFloat {
   0%, 100% {
     transform: translateY(0) scale(1);
     filter: drop-shadow(0 0 0px rgba(20, 157, 221, 0));
+    color: #149ddd;
   }
   50% {
-    transform: translateY(-6px) scale(1.07);
-    filter: drop-shadow(0 0 11px rgba(55, 179, 237, 0.6));
+    transform: translateY(-9px) scale(1.13);
+    filter: drop-shadow(0 0 14px rgba(55, 179, 237, 0.75));
+    color: #4fc3f7;
   }
 }
 
@@ -1529,18 +1533,18 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
   100% { transform: scale(1.2)  rotate(0deg); }
 }
 
-/* ── 1. Sidebar nav icons ────────────────────────────────── */
+/* ── 1. Sidebar nav icons — 3.5s cycle, clearly alive ───── */
 .nav-menu a i {
-  animation: iconBreathe 7s ease-in-out infinite;
+  animation: iconBreathe 3.5s ease-in-out infinite;
   transition: color 0.3s, transform 0.3s, filter 0.3s;
 }
 /* Stagger each nav item */
-.nav-menu li:nth-child(1) a i { animation-delay: 0s;    animation-duration: 6.5s; }
-.nav-menu li:nth-child(2) a i { animation-delay: 0.8s;  animation-duration: 7.5s; }
-.nav-menu li:nth-child(3) a i { animation-delay: 1.6s;  animation-duration: 6.8s; }
-.nav-menu li:nth-child(4) a i { animation-delay: 2.4s;  animation-duration: 7.2s; }
-.nav-menu li:nth-child(5) a i { animation-delay: 3.2s;  animation-duration: 7.0s; }
-.nav-menu li:nth-child(6) a i { animation-delay: 4.0s;  animation-duration: 6.6s; }
+.nav-menu li:nth-child(1) a i { animation-delay: 0s;    animation-duration: 3.5s; }
+.nav-menu li:nth-child(2) a i { animation-delay: 0.5s;  animation-duration: 4.0s; }
+.nav-menu li:nth-child(3) a i { animation-delay: 1.0s;  animation-duration: 3.8s; }
+.nav-menu li:nth-child(4) a i { animation-delay: 1.5s;  animation-duration: 4.2s; }
+.nav-menu li:nth-child(5) a i { animation-delay: 2.0s;  animation-duration: 3.6s; }
+.nav-menu li:nth-child(6) a i { animation-delay: 2.5s;  animation-duration: 4.1s; }
 
 /* On hover / active — come alive */
 .nav-menu a:hover i,
@@ -1552,15 +1556,15 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
   filter: drop-shadow(0 0 12px rgba(55, 179, 237, 0.9)) !important;
 }
 
-/* ── 2. Facts / Snapshot stat icons ─────────────────────── */
+/* ── 2. Facts / Snapshot stat icons — 3.5s cycle ───────── */
 .facts .count-box i {
-  animation: iconFloat 7s ease-in-out infinite;
+  animation: iconFloat 3.5s ease-in-out infinite;
   transition: transform 0.3s, filter 0.3s, color 0.3s;
 }
 .facts .count-box:nth-child(1) i { animation-delay: 0s; }
-.facts .count-box:nth-child(2) i { animation-delay: 1.0s; }
-.facts .count-box:nth-child(3) i { animation-delay: 2.0s; }
-.facts .count-box:nth-child(4) i { animation-delay: 3.0s; }
+.facts .count-box:nth-child(2) i { animation-delay: 0.6s; }
+.facts .count-box:nth-child(3) i { animation-delay: 1.2s; }
+.facts .count-box:nth-child(4) i { animation-delay: 1.8s; }
 
 .facts .count-box:hover i {
   animation-play-state: paused !important;
@@ -1569,17 +1573,17 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
   filter: drop-shadow(0 0 16px rgba(55, 179, 237, 0.85)) !important;
 }
 
-/* ── 3. Key Strengths / Services icons ───────────────────── */
+/* ── 3. Key Strengths / Services icons — 3.8s cycle ────── */
 .services .icon i {
-  animation: iconBreathe 7s ease-in-out infinite;
+  animation: iconBreathe 3.8s ease-in-out infinite;
   transition: transform 0.3s, filter 0.3s;
 }
 .services .icon-box:nth-child(1) .icon i { animation-delay: 0s; }
-.services .icon-box:nth-child(2) .icon i { animation-delay: 0.8s; }
-.services .icon-box:nth-child(3) .icon i { animation-delay: 1.6s; }
-.services .icon-box:nth-child(4) .icon i { animation-delay: 2.4s; }
-.services .icon-box:nth-child(5) .icon i { animation-delay: 3.2s; }
-.services .icon-box:nth-child(6) .icon i { animation-delay: 4.0s; }
+.services .icon-box:nth-child(2) .icon i { animation-delay: 0.5s; }
+.services .icon-box:nth-child(3) .icon i { animation-delay: 1.0s; }
+.services .icon-box:nth-child(4) .icon i { animation-delay: 1.5s; }
+.services .icon-box:nth-child(5) .icon i { animation-delay: 2.0s; }
+.services .icon-box:nth-child(6) .icon i { animation-delay: 2.5s; }
 
 .services .icon-box:hover .icon i {
   animation: iconPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -1587,17 +1591,17 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
   filter: drop-shadow(0 0 14px rgba(20, 157, 221, 0.9));
 }
 
-/* ── 4. Social link icons (gentle, staggered) ────────────── */
+/* ── 4. Social link icons — 4s cycle ───────────────────── */
 #header .profile .social-links a i {
-  animation: iconBreathe 8s ease-in-out infinite;
+  animation: iconBreathe 4s ease-in-out infinite;
   transition: transform 0.25s, filter 0.25s;
   display: inline-block;
 }
 #header .profile .social-links a:nth-child(1) i { animation-delay: 0s; }
-#header .profile .social-links a:nth-child(2) i { animation-delay: 1.0s; }
-#header .profile .social-links a:nth-child(3) i { animation-delay: 2.0s; }
-#header .profile .social-links a:nth-child(4) i { animation-delay: 3.0s; }
-#header .profile .social-links a:nth-child(5) i { animation-delay: 4.0s; }
+#header .profile .social-links a:nth-child(2) i { animation-delay: 0.6s; }
+#header .profile .social-links a:nth-child(3) i { animation-delay: 1.2s; }
+#header .profile .social-links a:nth-child(4) i { animation-delay: 1.8s; }
+#header .profile .social-links a:nth-child(5) i { animation-delay: 2.4s; }
 
 #header .profile .social-links a:hover i {
   animation-play-state: paused !important;
@@ -1614,4 +1618,3 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
 #pwa-install-fab.pwa-fab--ready i {
   color: #fff !important;
 }
-
