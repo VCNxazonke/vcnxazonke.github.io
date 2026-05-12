@@ -699,7 +699,7 @@ section {
 # Services
 --------------------------------------------------------------*/
 .services .icon-box {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .services .icon {
@@ -1574,21 +1574,21 @@ button:not(.pwa-install-fab):not(.login-option-btn):active {
 }
 
 /* ── 3. Key Strengths / Services icons — 3.8s cycle ────── */
-.services .icon i {
-  animation: iconBreathe 3.8s ease-in-out infinite;
+.services .icon-box .icon i {
+  animation: iconBreathe 3.8s ease-in-out infinite !important;
   transition: transform 0.3s, filter 0.3s;
 }
-.services .icon-box:nth-child(1) .icon i { animation-delay: 0s; }
-.services .icon-box:nth-child(2) .icon i { animation-delay: 0.5s; }
-.services .icon-box:nth-child(3) .icon i { animation-delay: 1.0s; }
-.services .icon-box:nth-child(4) .icon i { animation-delay: 1.5s; }
-.services .icon-box:nth-child(5) .icon i { animation-delay: 2.0s; }
-.services .icon-box:nth-child(6) .icon i { animation-delay: 2.5s; }
+.services .icon-box:nth-of-type(1) .icon i { animation-delay: 0s !important; }
+.services .icon-box:nth-of-type(2) .icon i { animation-delay: 0.5s !important; }
+.services .icon-box:nth-of-type(3) .icon i { animation-delay: 1.0s !important; }
+.services .icon-box:nth-of-type(4) .icon i { animation-delay: 1.5s !important; }
+.services .icon-box:nth-of-type(5) .icon i { animation-delay: 2.0s !important; }
+.services .icon-box:nth-of-type(6) .icon i { animation-delay: 2.5s !important; }
 
 .services .icon-box:hover .icon i {
-  animation: iconPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: iconPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
   color: #149ddd !important;
-  filter: drop-shadow(0 0 14px rgba(20, 157, 221, 0.9));
+  filter: drop-shadow(0 0 14px rgba(20, 157, 221, 0.9)) !important;
 }
 
 /* ── 4. Social link icons — 4s cycle ───────────────────── */
